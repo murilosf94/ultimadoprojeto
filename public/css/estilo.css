@@ -1,0 +1,187 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+body{
+	font-size: 1em;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background: #e6e6e6;
+}
+
+a{
+	color: #e41214;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #e41214;
+	text-decoration: underline;
+}
+
+
+#area-cabecalho {
+	background-color: #e41214;
+	padding: 15px;
+	text-align: center;
+}
+
+#area-menu{
+	padding: 5px;
+	font-size: 1.5em;
+	text-align: left;
+	margin-top: 10px;
+}
+
+#area-logo{
+	padding: 5px;
+	font-size: 2.5em;
+	border-style: dotted;
+	border-color: #fbd305;
+}
+
+#area-logo2{
+	padding: 5px;
+	font-size: 1.5em;
+}
+
+
+#area-cabecalho a:link, #area-cabecalho a:visited{
+	color: #fbd305;
+	padding: 8px 12px;
+	text-decoration: none;
+}
+
+#area-cabecalho a:hover{
+	color: #e41214;
+	background: #FFF;
+	text-decoration: none;
+}
+
+#area-principal{
+	width: 920px;
+	margin: 0px auto;
+	padding: 15px;
+}
+
+#area-postagens{
+	width: 660px;
+	float: left;
+}
+
+#area-postagens2{
+	width: 230px;
+	float: left;
+	display: inline;
+	margin: 10px 30px;
+}
+
+#area-lateral{
+	width: 250px;
+	float: right;
+}
+
+#rodape{
+	clear: both;
+	text-align: center;
+	padding: 15px;
+	background: #CCC;
+}
+
+#botaoreserva{
+	font-size: 3em;
+	background-color: #f8cb2e;
+	text-align: center;
+	border-color: #e42114;
+	border-style: solid;
+}
+
+#botaofazer{
+	font-size: 1.5em;
+	background-color: #f8cb2e;
+	text-align: center;
+	border-color: #e42114;
+	border-style: solid;
+}
+
+.vermelho{
+	color: #e41214;
+}
+
+.amarelo{
+	color: #fbd305;
+}
+
+.underline{
+	text-decoration: underline;
+}
+
+.postagem{
+	padding: 20px;
+	margin-bottom: 20px;
+	background: white;
+}
+
+.conteudo-lateral{
+	background: white;
+	padding: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.postagem-lateral{
+	font-size: 0.8em;
+	padding: 5px;
+	border-bottom: 1px dotted #CCC;
+}
+
+.cadastro{
+	float: right;
+	padding-top: 20px;
+	margin-bottom: 15px;
+	font-size: 1.5em;
+	text-align: center;
+}
+ 
+.cabecalhopostagem{
+	padding: 20px;
+	margin-bottom: 20px;
+	background: white;
+	text-align: center;
+	font-size: 3em;
+	color: #e41214
+}
+
+.contato{
+	font-size: 1.5em;
+}
+
+/*criar reserva*/
+#event-create-container {
+	padding: 30px
+  }
+  
+  #event-create-container label {
+	font-weight: bold;
+  }
+  
+  #event-create-container input,
+  #event-create-container select,
+  #event-create-container textarea {
+	font-size: 12px;
+  }
+
+
+#cardnomenu {
+	border-color:red;
+	border-style: dashed;
+	margin: 5px;
+}
+  
+
