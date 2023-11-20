@@ -6,7 +6,7 @@
 
 <h1>Criar Pacote</h1>
 
-<form action="/create" method="POST">
+<form action="/comidas" method="POST">
     @csrf
     <div class="form-group">
         <label for="nome">Nome:</label>

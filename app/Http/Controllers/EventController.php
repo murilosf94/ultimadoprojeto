@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\User;
+use App\Models\Food;
 
 
 class EventController extends Controller
@@ -21,10 +22,13 @@ class EventController extends Controller
     }
 
     public function create(){
-        return view('events.create');
+        $pacote = new Food;
+        $pacote=$pacote->all();
+        return view('events.create', compact ('pacote'));
     }
 
     public function store(Request $request) {
+
 
         $event = new Event;
         

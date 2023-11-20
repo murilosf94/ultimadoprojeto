@@ -39,7 +39,7 @@ Route::get('/convidados-confirmados/{eventId}', [ConvidadoController::class, 'li
 
 
 
-Route::post('comidas', [FoodController::class, 'store']);
+Route::post('comidas', [FoodController::class, 'store'])->name('comidas');
 Route::get('comidas/create', [FoodController::class, 'create']);
 Route::get('comidas/update', [FoodController::class, 'update']);
 

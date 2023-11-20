@@ -14,8 +14,9 @@ class FoodController extends Controller
 
     public function index()
     {
-        $pacotes = Food::all();
-        return view('comidas', compact('pacotes'));
+        $pacote = new Food;
+        $pacote = $pacote->all();
+        return view('comidas', compact('pacote'));
     }
     
     public function create()
@@ -25,8 +26,17 @@ class FoodController extends Controller
     
     public function store(Request $request)
     {
-        Pacote::create($request->all());
-        return redirect()->route('comidas');
+        $pacote = new Food;
+        
+        $pacote->nome = $request->nome;
+        $pacote->descricao = $request->descricao;
+        $pacote->preco = $request->preco;
+
+        $pacote->save();
+
+        $pacote = new Food;
+
+        return view('comidas/comidas', compact('pacote'));
     }
     
     public function edit($id)

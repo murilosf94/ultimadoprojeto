@@ -29,17 +29,14 @@
     </div>
 
     <div id="area-postagens" class="postagem">
-      <label for="title">Qual pacote de comida você prefere?</label>
-      <div class="postagem">	
-        <input type="checkbox" name="items[]" value="Pacote 1"> Pacote 1
-      </div>
-      <div class="postagem">	
-        <input type="checkbox" name="items[]" value="Pacote 2"> Pacote 2
-      </div>
-      <div class="postagem">	
-        <input type="checkbox" name="items[]" value="Pacote 3"> Pacote 3
-    </div>
-    
+      <p> Qual pacote deseja escolher? </p>
+      <select name="items" id="name" value="items">
+        @foreach ($pacote as $pacote)
+          <option>
+            {{ $pacote->nome }}
+          </option>  
+        @endforeach
+</select>      
     </div>
 
     <div id="area-postagens">

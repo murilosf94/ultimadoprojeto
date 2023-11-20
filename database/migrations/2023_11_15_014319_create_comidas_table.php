@@ -12,7 +12,7 @@ class CreateComidasTable extends Migration
      */
         public function up()
         {
-            Schema::create('pacotes', function (Blueprint $table) {
+            Schema::create('food', function (Blueprint $table) {
                 $table->id();
                 $table->string('nome');
                 $table->text('descricao');
