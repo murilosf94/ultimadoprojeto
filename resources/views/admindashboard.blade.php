@@ -18,7 +18,7 @@
 
 		<div id='area-postagens' class='postagem'>
 			<h1>CRUD DA AGENDA</h1>
-			<a href='#'>Clique Aqui</a>
+			<a href='comidas/create'>Clique Aqui</a>
 		</div>
 		@endif
 

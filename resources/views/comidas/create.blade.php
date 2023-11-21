@@ -20,7 +20,6 @@
         <label for="preco">Preço:</label>
         <input type="text" name="preco" class="form-control" required>
     </div>
-    <!-- Adicione outros campos conforme necessário -->
 
     <button type="submit" class="btn btn-success">Salvar</button>
 </form>

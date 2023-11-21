@@ -10,6 +10,6 @@ class Food extends Model
 
     public function itens()
     {
-        return $this->hasMany(ItemPacote::class);
+        return $this->hasMany(Food::class);
     }
 }

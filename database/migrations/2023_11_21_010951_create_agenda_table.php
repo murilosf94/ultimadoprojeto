@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('pacotes', function (Blueprint $table) {
-            $table->string('image');
+        Schema::create('agenda', function (Blueprint $table) {
+            $table->id();
+            $table->string('data');
         });
     }
 
@@ -21,8 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('pacotes', function (Blueprint $table) {
-            $table->dropColumn('image');
-        });
+        Schema::dropIfExists('agenda');
     }
 };

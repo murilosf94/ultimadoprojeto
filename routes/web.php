@@ -40,8 +40,15 @@ Route::get('/convidados-confirmados/{eventId}', [ConvidadoController::class, 'li
 
 
 Route::post('comidas', [FoodController::class, 'store'])->name('comidas');
+Route::get('comidasdashboard', [FoodController::class, 'index']);
 Route::get('comidas/create', [FoodController::class, 'create']);
 Route::get('comidas/update', [FoodController::class, 'update']);
+
+
+Route::post('agenda', [FoodController::class, 'store']);
+Route::get('agendadashboard', [FoodController::class, 'index']);
+Route::get('agenda/create', [FoodController::class, 'create']);
+Route::get('agenda/update', [FoodController::class, 'update']);
 
 
 

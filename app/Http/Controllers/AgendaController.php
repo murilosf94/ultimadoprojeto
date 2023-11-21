@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\User;
 use App\Models\Food;
+use App\Models\Agenda;
 
 
 class FoodController extends Controller
@@ -14,16 +15,16 @@ class FoodController extends Controller
 
     public function index()
     {
-        $pacote = new Food;
+        $agenda = new Agenda;
         $pacote = $pacote->all();
-        return view('comidas/comidas', compact('pacote'));
+        return view('agendadashboard', compact('agenda'));
     }
     
     public function create()
     {
         $pacote = new Food;
         $pacote = $pacote->all();
-        return view('comidas.create', compact('pacote'));
+        return view('agenda.create', compact('agenda'));
     }
     
     public function store(Request $request)
@@ -39,7 +40,7 @@ class FoodController extends Controller
         $pacote = new Food;
         $pacote = $pacote->all();
         
-        return view('comidas/comidas', compact('pacote'));
+        return view('agenda/comidas', compact('agenda'));
     }
     
     public function edit($id)
