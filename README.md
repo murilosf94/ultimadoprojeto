@@ -3,15 +3,13 @@
 <br>
 2) Utilize no terminal do Visual Studio Code os seguintes comandos:
 
-``sh
-php artisan migrate
-```
-``sh
-php artisan serve
-```
-``sh
-https://localhost:8000
-```
+    php artisan migrate
+
+    php artisan serve
+
+    https://localhost:8000
+
+
 3)O código estará rodando na porta 8000 
 
 Link do Figma: https://www.figma.com/file/7hK7NZ7kAzr886TX90opgG/Buffet?type=design&node-id=0%3A1&mode=design&t=McpOCy7QCG2dU2Hq-1
