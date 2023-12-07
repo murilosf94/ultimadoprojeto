@@ -13,7 +13,7 @@
 
 		<div id='area-postagens' class='postagem'>
 			<h1>CRUD DOS PACOTES DE COMIDA</h1>
-			<a href='comidas/create'>Clique Aqui</a>
+			<a href='comidas'>Clique Aqui</a>
 		</div>
 
 		<div id='area-postagens' class='postagem'>

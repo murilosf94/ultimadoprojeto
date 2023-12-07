@@ -39,16 +39,25 @@ Route::get('/convidados-confirmados/{eventId}', [ConvidadoController::class, 'li
 
 
 
-Route::post('comidas', [FoodController::class, 'store'])->name('comidas');
+Route::any('comidas', [FoodController::class, 'index'])->name('comidas');
 Route::get('comidasdashboard', [FoodController::class, 'index']);
 Route::get('comidas/create', [FoodController::class, 'create']);
-Route::get('comidas/update', [FoodController::class, 'update']);
+Route::get('comidas/update/{id}', [FoodController::class, 'update']);
+Route::get('comidas/edit/{id}', [FoodController::class, 'edit']);
 
 
 Route::post('agenda', [FoodController::class, 'store']);
 Route::get('agendadashboard', [FoodController::class, 'index']);
 Route::get('agenda/create', [FoodController::class, 'create']);
-Route::get('agenda/update', [FoodController::class, 'update']);
+Route::get('agenda/update/{id}', [FoodController::class, 'update']);
+Route::get('agenda/edit/{id}', [FoodController::class, 'edit']);
+
+
+Route::any('recomendacoes', [FoodController::class, 'index'])->name('comidas');
+Route::get('recomendacoesdashboard', [FoodController::class, 'index']);
+Route::get('recomendacoes/create', [FoodController::class, 'create']);
+Route::get('recomendacoes/update/{id}', [FoodController::class, 'update']);
+Route::get('recomendacoes/edit/{id}', [FoodController::class, 'edit']);
 
 
 
@@ -59,26 +68,14 @@ Route::get('/quemsomos', function () {
     return view('quemsomos');
 });
 
-Route::get('/contato', function () {
-    return view('contato');
-});
-
-Route::get('/calendario', function () {
-    return view('calendario');
-});
-
 Route::get('/reserva', function () {
     return view('reserva');
 });
 
-Route::get('/festas', function () {
-    return view('festas');
+Route::get('/contato', function () {
+    return view('contato');
 });
 
-
-Route::get('/comidas', function () {
-    return view('comidas.comidas');
-});
 
 Route::get('/events/contato', function () {
     return view('contato');
@@ -94,4 +91,3 @@ Route::get('/admindashboard', function () {
     
     
 });
-

@@ -24,17 +24,10 @@
         <p> {{ $event->guests }}</p>
       </div>
 
-      <div class="postagem">  
-        <h3> Número de participantes confirmados: </h3>
-        <p>Participantes</p>
-      </div>
-
       <div class="postagem">
         <h3>O evento conta com:</h3>
         <ul>
-        @foreach($event->items as $item)
           <li><span>{{ $item }}</span></li>
-        @endforeach
         </ul>
       </div>
 

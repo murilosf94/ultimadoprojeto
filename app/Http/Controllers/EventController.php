@@ -50,27 +50,25 @@ class EventController extends Controller
 
         $event = Event::findOrFail($id);
 
+        $item = $event->items;
+
         $user = auth()->user();
 
 
         $eventOwner = User::where('id', $event->id);
 
-        return view('events.show', ['event' => $event]);
+        return view('events.show', ['event' => $event, 'item' => $item]);
         
     }
 
 
  
-    public function dashboard() {
+    public function dashboard(Event $events) {
 
-        $user = auth()->user();
+        $events=$events->all();
 
-        $events = $user->events;
-
-        $eventsAsParticipant = $user->eventsAsParticipant;
-
-        return view('events.dashboard', 
-            ['events' => $events, 'eventsasparticipant' => $eventsAsParticipant]
+        return view('dashboard', 
+            ['events' => $events]
         );
 
     }
@@ -83,11 +81,12 @@ class EventController extends Controller
     }
 
     
-    public function edit($id){
+    public function edit($id, Food $pacote){
 
+        $pacote=$pacote->all();
         $event = Event::findOrFail($id);
 
-        return view('events.edit', ['event' => $event]);
+        return view('events.edit', ['event' => $event, 'pacote' => $pacote]);
 
     }
 
