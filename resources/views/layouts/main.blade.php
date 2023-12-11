@@ -56,7 +56,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
                 <a href="quemsomos">Quem Somos</a>|
                 <a href="reserva">Fazer reserva</a>|
                 <a href="contato">Entre em contato conosco</a>|
-                <a href="comidas">Pacotes de comidas</a>|
+                <a href="comidasdashboard">Pacotes de comidas</a>|
                 @auth
                 @if (Auth::user()->acesso == 'd' || Auth::user()->acesso == 'b' || Auth::user()->acesso == 'c')
                     <a href="admindashboard"> Página de permissões </a>

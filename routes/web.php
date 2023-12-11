@@ -39,11 +39,12 @@ Route::get('/convidados-confirmados', [ConvidadoController::class, 'listaConfirm
 Route::get('/convidados-confirmados/{eventId}', [ConvidadoController::class, 'listaConfirmados'])->name('convidados-confirmados');
 
 Route::any('comidas', [FoodController::class, 'store'])->name('comidas');
+Route::any('comidas/{id}', [FoodController::class, 'index']);
 Route::get('comidasdashboard', [FoodController::class, 'index']);
 Route::get('comidas/create', [FoodController::class, 'create'])->middleware('auth');
 Route::any('comidas/edit/{id}', [FoodController::class, 'edit'])->middleware('auth');
 Route::put('/comidas/update/{id}', [FoodController::class, 'update'])->middleware('auth');
-Route::delete('/comidas/{id}', [FoodController::class, 'destroy'])->middleware('auth');
+Route::delete('/comidasdestroy/{id}', [FoodController::class, 'destroy'])->middleware('auth');
 
 
 Route::post('agenda', [FoodController::class, 'store'])->middleware('auth');

@@ -98,8 +98,7 @@ class FoodController extends Controller
             'image2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'image3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-    
-        // Recuperar o modelo
+
         $pacote = Food::findOrFail($request->id);
     
         if($request->hasFile('image') && $request->file('image')->isValid()) {
@@ -115,7 +114,6 @@ class FoodController extends Controller
             $pacote->image = $imageName;
         }
 
-        //img upload
         if($request->hasFile('image2') && $request->file('image2')->isValid()) {
 
             $requestImage2  = $request->image2;
@@ -129,7 +127,6 @@ class FoodController extends Controller
             $pacote->image2 = $imageName2;
         }
 
-        //img upload
         if($request->hasFile('image3') && $request->file('image3')->isValid()) {
 
             $requestImage3  = $request->image3;
@@ -145,10 +142,9 @@ class FoodController extends Controller
     
         $pacote->save();
 
-        // Atualizar outros campos
         $pacote->update($request->except(['image', 'image2', 'image3']));
     
-        return redirect('comidas');
+        return redirect('comidas.comidas', compact ('pacote'));
     }
 
     

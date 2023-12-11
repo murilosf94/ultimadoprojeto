@@ -16,10 +16,6 @@
 			<a href='comidas'>Clique Aqui</a>
 		</div>
 
-		<div id='area-postagens' class='postagem'>
-			<h1>CRUD DA AGENDA</h1>
-			<a href='comidas/create'>Clique Aqui</a>
-		</div>
 		@endif
 
         @if (Auth::user()->acesso == 'c')

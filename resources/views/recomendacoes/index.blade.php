@@ -6,9 +6,14 @@
     <div id="area-principal">
         <h1>Lista de Recomendações!!!</h1>
 
+        @if (Auth::user()->acesso == 'c')
+        <h3><a href="recomendacoes/create"> CRIAR RECOMENDAÇÃO </a></h3>
+        @endif
         @if ($recomendacao !== null) 
         @if (count($recomendacao) > 0)
+
         <div id="area-postagens" class="postagem">
+
             <table class="table">
                 <thead>
                     <tr>
