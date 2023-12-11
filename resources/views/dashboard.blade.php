@@ -16,7 +16,6 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nome</th>
-                            <th scope="col">Participantes</th>
                             @if (Auth::user()->acesso == 'd' || Auth::user()->acesso == 'b' || Auth::user()->acesso == 'c')
                             <th scope="col">Ações</th>
                             @endif
@@ -27,13 +26,12 @@
                             <tr>
                                 <td scropt="row">{{ $loop-> index + 1}}</td>
                                 <td><a href="events/{{ $event->id }}">{{ $event->name }}</a></td>
-                                <td>0</td>
                                 @if (Auth::user()->acesso == 'd' || Auth::user()->acesso == 'b' || Auth::user()->acesso == 'c')
                                     <td><a href="/events/edit/{{ $event->id }}"><button type="button"> Editar</button></a>
                                     <form action="/events/{{ $event->id }}" method="POST"> 
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit"> Deletar </button>
+                                        <button type="submit" onclick="return confirm('Tem certeza que deseja excluir?')"> Deletar </button>
                                     </form>
                                 @endif
                             </tr>

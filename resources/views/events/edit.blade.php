@@ -16,7 +16,17 @@
     
     <div id="area-postagens" class="postagem">
       <label for="date">Data do evento:</label>
-      <input type="date" class="form-control" id="date" name="date" value="{{ $event -> date }}">
+      <input type="date" class="form-control" id="date" name="date" value="{{ old('date', $event -> date) }}">
+      @if ($errors->any())
+    <div class="cortextovermelho">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     </div>
 
     <div id="area-postagens" class="postagem">
@@ -30,15 +40,15 @@
     </div>
 
     <div id="area-postagens" class="postagem">
-      <p> Qual pacote deseja escolher? </p>
-      <select name="items" id="name">
-        @foreach ($pacote as $pacote)
-          <option>
-            {{ $pacote->nome }}
-          </option>  
+    <p> Qual pacote deseja escolher? </p>
+    <select name="items" id="name">
+        @foreach ($pacote as $pacoteOption)
+            <option value="{{ $pacoteOption->id }}" {{ $event->items == $pacoteOption->id ? 'selected' : '' }}>
+                {{ $pacoteOption->nome }}
+            </option>  
         @endforeach
-      </select>
-    </div>
+    </select>
+</div>
 
     <div id="area-postagens">
       <div id="botaofazer" class="postagem"> 

@@ -25,7 +25,14 @@
         @if (Auth::user()->acesso == 'c')
 		<div id='area-postagens' class='postagem'>
 			<h1>RECOMENDAÇÕES PRÉ-FESTA</h1>
-			<a href='#'>Clique Aqui</a>
+			<a href='recomendacoes'>Clique Aqui</a>
+		</div>
+		@endif
+
+		@if (Auth::user()->acesso == 'd' || Auth::user()->acesso == 'b' || Auth::user()->acesso == 'c')
+		<div id='area-postagens' class='postagem'>
+			<h1>FEEDBACKS DOS NOSSOS CLIENTES</h1>
+			<a href='feedback/index'>Clique Aqui</a>
 		</div>
 		@endif
 

@@ -2,62 +2,72 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;  
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Models\User;
 use App\Models\Food;
+use App\Models\Recomendacoes;
+use Carbon\carbon;
 
 
-class FoodController extends Controller
+class RecomendacoesController extends Controller
 {
-
-    public function index(Food $pacote)
+    public function index()
     {
-        $pacote = $pacote->all();
-        return view('comidas.comidas', ['pacote'=>$pacote]);
+        $recomendacao = Recomendacoes::all();
+        return view('recomendacoes.index', compact('recomendacao'));
     }
-    
+
+    public function show($id)
+    {
+        // Lógica para obter os dados da recomendação com o ID fornecido
+        $recomendacao = Recomendacoes::findOrFail($id);
+
+        // Retorna a view 'recomendacoes.show' com os dados da recomendação
+        return view('recomendacoes.show', ['recomendacao' => $recomendacao]);
+    }
+
+
     public function create()
     {
-        $pacote = new Food;
-        $pacote = $pacote->all();
-        return view('comidas.create', compact('pacote'));
+        return view('recomendacoes.create');
     }
-    
+
     public function store(Request $request)
     {
-        $pacote = new Food;
-        
-        $pacote->nome = $request->nome;
-        $pacote->descricao = $request->descricao;
-        $pacote->preco = $request->preco;
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
 
-        $pacote->save();
+        Recomendacoes::create($request->all());
 
-        $pacote = $pacote->all();
-        
-        return view('comidas.comidas', compact('pacote'));
+        return redirect()->route('recomendacoes.index');
     }
-    
+
     public function edit($id)
     {
-        $pacote = Food::findOrFail($id);
-        return view('comidas.editcomidas', compact('pacote'));
+        $recomendacao = Recomendacoes::findOrFail($id);
+        return view('recomendacoes.edit', compact('recomendacao'));
     }
-    
-    public function update(Request $request, $id, Food $pacote)
-    {
-        $pacote=$pacote->all();
-        Food::findOrFail($request->id)->update($request->all());
 
-        return view('comidas.comidas', compact('pacote'));
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        Recomendacoes::findOrFail($id)->update($request->all());
+
+        return redirect()->route('recomendacoes.index');
     }
-    
+
     public function destroy($id)
     {
-        Pacote::destroy($id);
-        return redirect()->route('comidas.index');
-    }
+        Recomendacoes::destroy($id);
 
-} 
+        return redirect()->route('recomendacoes.index');
+    }
+}

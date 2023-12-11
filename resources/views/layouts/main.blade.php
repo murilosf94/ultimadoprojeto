@@ -62,6 +62,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
                     <a href="admindashboard"> Página de permissões </a>
                 @endif
                 @endauth
+                @auth
+                @if (Auth::user()->acesso == 'a')
+                    <a href="feedback"> AVALIE NOSSO SERVIÇO </a>
+                @endif
+                @endauth
             </div>
         </div>
     </header>

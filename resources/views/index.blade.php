@@ -31,6 +31,13 @@
 
 			<div id="area-postagens">
 				<div class="postagem">
+					<h2><a href="recomendacoes">CONHEÇA NOSSAS RECOMENDAÇÕES PRÉ FESTA</a></h2>
+				<div class="postagem">
+				<div class="postagem">
+					<h2><a href="feedback/index">VEJA OS FEEDBACKS DOS NOSSOS CLIENTES</a></h2>
+					
+			@auth
+				<div class="postagem">
 					<h2>Próximos Eventos</h2>
 					<p class="subtitle">Veja os eventos dos próximos dias:</p>
 					<div>
@@ -44,9 +51,9 @@
 								</div>
 							</div>
 						@endforeach
-
 					</div>
 				</div>
+			@endauth
 			</div>
 		</div>
 

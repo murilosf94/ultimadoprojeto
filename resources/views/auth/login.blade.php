@@ -1,9 +1,17 @@
+@extends('layouts.main')
+
+@section('title', 'Área de Login')
+
+@section('content')
+
+<div id="area-principal">
+
+<div id="area-postagens">
+
+<div class="postagem">
+
 <x-guest-layout>
     <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
-
         <x-validation-errors class="mb-4" />
 
         @if (session('status'))
@@ -46,3 +54,5 @@
         </form>
     </x-authentication-card>
 </x-guest-layout>
+</div></div></div>
+@endsection

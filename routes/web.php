@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\ConvidadoController;
+use App\Http\Controllers\RecomendacoesController;
+use App\Http\Controllers\FeedbackController;
 
 Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
 Route::get('/events/{id}', [EventController::class, 'show']);
@@ -29,7 +31,6 @@ Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('aut
 Route::get('/', [EventController::class, 'index']);
 
 
-Route::post('/comidas', [FoodController::class, 'store']);
 Route::any('/comidas/create', [FoodController::class, 'create'])->middleware('auth');
 
 Route::get('/confirmar-presenca/create/{id}', [ConvidadoController::class, 'mostrarFormulario'])->name('confirmar-presenca')->middleware('auth');
@@ -37,28 +38,33 @@ Route::post('/confirmar-presenca/{id}', [ConvidadoController::class, 'salvarConv
 Route::get('/convidados-confirmados', [ConvidadoController::class, 'listaConfirmados'])->middleware('auth');
 Route::get('/convidados-confirmados/{eventId}', [ConvidadoController::class, 'listaConfirmados'])->name('convidados-confirmados');
 
-
-
-Route::any('comidas', [FoodController::class, 'index'])->name('comidas');
+Route::any('comidas', [FoodController::class, 'store'])->name('comidas');
 Route::get('comidasdashboard', [FoodController::class, 'index']);
-Route::get('comidas/create', [FoodController::class, 'create']);
-Route::get('comidas/update/{id}', [FoodController::class, 'update']);
-Route::get('comidas/edit/{id}', [FoodController::class, 'edit']);
+Route::get('comidas/create', [FoodController::class, 'create'])->middleware('auth');
+Route::any('comidas/edit/{id}', [FoodController::class, 'edit'])->middleware('auth');
+Route::put('/comidas/update/{id}', [FoodController::class, 'update'])->middleware('auth');
+Route::delete('/comidas/{id}', [FoodController::class, 'destroy'])->middleware('auth');
 
 
-Route::post('agenda', [FoodController::class, 'store']);
-Route::get('agendadashboard', [FoodController::class, 'index']);
-Route::get('agenda/create', [FoodController::class, 'create']);
-Route::get('agenda/update/{id}', [FoodController::class, 'update']);
-Route::get('agenda/edit/{id}', [FoodController::class, 'edit']);
+Route::post('agenda', [FoodController::class, 'store'])->middleware('auth');
+Route::get('agendadashboard', [FoodController::class, 'index'])->middleware('auth');
+Route::get('agenda/create', [FoodController::class, 'create'])->middleware('auth');
+Route::get('agenda/update/{id}', [FoodController::class, 'update'])->middleware('auth');
+Route::get('agenda/edit/{id}', [FoodController::class, 'edit'])->middleware('auth');
 
 
-Route::any('recomendacoes', [FoodController::class, 'index'])->name('comidas');
-Route::get('recomendacoesdashboard', [FoodController::class, 'index']);
-Route::get('recomendacoes/create', [FoodController::class, 'create']);
-Route::get('recomendacoes/update/{id}', [FoodController::class, 'update']);
-Route::get('recomendacoes/edit/{id}', [FoodController::class, 'edit']);
+Route::get('recomendacoes', [RecomendacoesController::class, 'index'])->name('recomendacoes.index')->middleware('auth');
+Route::get('recomendacoes/create', [RecomendacoesController::class, 'create'])->name('recomendacoes.create')->middleware('auth');
+Route::post('recomendacoes', [RecomendacoesController::class, 'store'])->name('recomendacoes.store')->middleware('auth');
+Route::get('recomendacoes/{id}/edit', [RecomendacoesController::class, 'edit'])->name('recomendacoes.edit')->middleware('auth');
+Route::put('recomendacoes/{id}', [RecomendacoesController::class, 'update'])->name('recomendacoes.update')->middleware('auth');
+Route::delete('recomendacoes/{id}', [RecomendacoesController::class, 'destroy'])->name('recomendacoes.destroy')->middleware('auth');
+Route::get('recomendacoes/{id}', [RecomendacoesController::class, 'show'])->name('recomendacoes.show')->middleware('auth');
 
+
+Route::get('/feedback/index', [FeedbackController::class, 'index'])->name('feedbacks.index');
+Route::get('/feedback', [FeedbackController::class, 'create'])->middleware('auth');
+Route::post('/feedback', [FeedbackController::class, 'store'])->middleware('auth');
 
 
 
